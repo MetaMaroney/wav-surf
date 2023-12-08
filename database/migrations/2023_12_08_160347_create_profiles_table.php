@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            // Table columns
+            $table->string('username');
+            $table->string('bio')->nullable();
+            $table->dateTime('date_of_birth')->nullable();
         });
     }
 
