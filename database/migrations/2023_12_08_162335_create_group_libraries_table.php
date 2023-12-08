@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('group_libraries', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            // Table columns
+            $table->string('name');
+            $table->integer('total_beats');
         });
     }
 

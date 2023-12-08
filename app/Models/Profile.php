@@ -18,4 +18,9 @@ class Profile extends Model
     {
         return $this->hasMany(Library::class);
     }
+
+    public function groupLibraries()
+    {
+        return $this->belongsToMany(GroupLibrary::class);
+    }
 }
