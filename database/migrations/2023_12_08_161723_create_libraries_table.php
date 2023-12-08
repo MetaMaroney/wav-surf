@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             // Table Columns
             $table->string('name');
-            $table->integer('total_beats');
+            $table->integer('total_beats')->nullable();
             // Profile foreign key
             $table->bigInteger('profile_id')->unsigned();
             /**

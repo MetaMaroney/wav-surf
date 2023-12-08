@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             // Table columns
             $table->string('name');
-            $table->integer('total_beats');
+            $table->integer('total_beats')->nullable();
         });
     }
 
