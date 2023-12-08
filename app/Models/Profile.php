@@ -13,4 +13,9 @@ class Profile extends Model
     {
         return $this->hasOne(ProfilePicture::class);
     }
+
+    public function libraries()
+    {
+        return $this->hasMany(Library::class);
+    }
 }

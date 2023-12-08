@@ -14,6 +14,16 @@ return new class extends Migration
         Schema::create('libraries', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            // Table Columns
+            $table->string('name');
+            $table->integer('total_beats');
+            // Profile foreign key
+            $table->bigInteger('profile_id')->unsigned();
+            /**
+             * Foreign Referential Constraint on Profile
+             */
+            $table->foreign('profile_id')->references('id')->on('profiles')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
