@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('profile_pictures', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            // Table cloumns
+            $table->string('image_URL')->nullable();
+            $table->bigInteger('profile_id')->unsigned();
+            /**
+             * Referentail Integrity Constraint on Profile
+             */
+            $table->foreign('profile_id')->references('id')->on('profiles')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
