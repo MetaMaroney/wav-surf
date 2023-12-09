@@ -1,6 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.test')
 
-@section('content')
+@section('title')
+{{-- "Wav Surf - " --}}Profile Index
+@endsection
+
+@section('middlediv')
    <h1>Profile.index</h1> 
 @endsection
 
