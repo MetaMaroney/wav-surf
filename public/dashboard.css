@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 html, body{
     margin: 0;
     padding: 0;
@@ -21,7 +25,8 @@ html, body{
     flex-direction: row;
     justify-content: space-between;
     background-color: rgb(132, 0, 255);
-    height: 60px;
+    min-height: 60px;
+    flex-grow: 0;
 }
 .navitem{    
     background-color: rgb(134, 133, 136);
@@ -31,7 +36,6 @@ html, body{
     align-items: center;
     justify-content: center;
     overflow: hidden;
-
 }
 #navdiv1{
     background-color: aliceblue;
@@ -53,16 +57,14 @@ html, body{
     display: flex;
     flex-direction: row;
     background-color: rgb(0, 247, 255);
-    height: 100vh;
+    height: 80%;
+    flex-grow: 1;
 }
 .bodyitem{
     background-color: rgb(77, 94, 48);
     height: 100%;
-    width: 20px;
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
+    display: flex;    
 }
 #bodydiv1{
     background-color: rgb(255, 255, 5);
@@ -73,6 +75,12 @@ html, body{
     background-color: rgb(13, 255, 0);
     flex-grow: 1.5;
     flex-basis: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    scrollbar-width: none;
+
 }
 #bodydiv3{
     background-color: rgb(255, 0, 0);
