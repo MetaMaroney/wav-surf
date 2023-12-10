@@ -7,21 +7,8 @@
 @section('middlediv')
    <div id="middledivitem">
    @foreach ($profiles as $profile)
-      <ul>{{$profile->id}}</ul>
+      <li><a href="{{  route('profiles.show', ['id' => $profile->id])  }}">{{$profile->id}}</a></li>
    @endforeach
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
-   <ul>more</ul>
    </div>
 @endsection
 

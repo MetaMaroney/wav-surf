@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');
 
 Route::get('/profiles/{id}', [ProfileController::class, 'show'])->name('profiles.show');
+
+Route::get('/libraries', [LibraryController::class, 'index'])->name('libraries');
