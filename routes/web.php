@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LibraryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,6 @@ Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.ind
 
 Route::get('/profiles/{id}', [ProfileController::class, 'show'])->name('profiles.show');
 
-Route::get('/libraries', [LibraryController::class, 'index'])->name('libraries');
+Route::get('/libraries', [LibraryController::class, 'index'])->name('libraries.index');
+
+Route::get('/libraries/{id}', [LibraryController::class, 'show'])->name('libraries.show');
