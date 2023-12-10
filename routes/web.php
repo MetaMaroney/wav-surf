@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +22,14 @@ Route::get('/', function () {
 
 Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');
 
+Route::get('/profiles/create', [ProfileController::class, 'create'])->name('profiles.create');
+
+Route::post('/profiles', [ProfileController::class, 'store'])->name('profiles.store');
+
 Route::get('/profiles/{id}', [ProfileController::class, 'show'])->name('profiles.show');
 
 Route::get('/libraries', [LibraryController::class, 'index'])->name('libraries.index');
 
 Route::get('/libraries/{id}', [LibraryController::class, 'show'])->name('libraries.show');
+
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');

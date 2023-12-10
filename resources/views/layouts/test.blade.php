@@ -14,9 +14,35 @@
             <div class="navitem" id="navdiv3">*Profile*</div>
         </div>
         <div class="bdiv" id="bodycontainer">
-            <div class="bodyitem" id="bodydiv1">@yield('leftdiv')</div>
-            <div class="bodyitem" id="bodydiv2">@yield('middlediv')</div>
-            <div class="bodyitem" id="bodydiv3">@yield('rightdiv')</div>
+            <div class="bodyitem" id="bodydiv1">
+                @yield('leftdiv')
+                <ul>
+                    <li>Library</li>
+                    <li>Explore</li>
+                </ul>
+            </div>
+            <div class="bodyitem" id="bodydiv2">
+                @yield('middlediv')
+            </div>
+            <div class="bodyitem" id="bodydiv3">
+                @if (session('message'))
+                    <div>
+                        Message:
+                        <p><b>{{ session('message') }}</b></p>
+                    </div>
+                @endif
+                @if ($errors->any())
+                    <div>
+                        Errors:
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @yield('rightdiv')
+            </div>
         </div>
     </div>
 </body>

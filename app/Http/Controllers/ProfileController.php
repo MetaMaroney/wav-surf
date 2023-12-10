@@ -21,7 +21,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('profiles.create');
     }
 
     /**
@@ -29,7 +29,21 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = $request->validate([
+            'username' => 'required|max:255',
+            'bio' => 'nullable|string',
+            'date_of_birth' => 'nullable|date'
+        ]);
+
+        $profile = new Profile;
+        $profile->username = $valid['username'];
+        $profile->bio = $valid['bio'];
+        $profile->date_of_birth = $valid['date_of_birth'];
+        $profile->save();
+
+        session()->flash('message', 'Profile created succesfully!');
+
+        return redirect()->route('profiles.index');
     }
 
     /**
