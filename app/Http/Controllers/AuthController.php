@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -16,8 +16,7 @@ class AuthController extends Controller
         $valid = request()->validate([
             'name' => 'required|max:50',
             'email' => 'required|email|unique:users,email',
-            'password' => 'require|confirmed',
-            
+            'password' => 'required|confirmed|min:8'  
         ]);
 
         $user = new User;
@@ -34,6 +33,6 @@ class AuthController extends Controller
     }
 
     public function authenticate(){
-        
+
     }
 }
