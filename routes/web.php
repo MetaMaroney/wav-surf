@@ -20,16 +20,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Profile routes
 Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');
-
 Route::get('/profiles/create', [ProfileController::class, 'create'])->name('profiles.create');
-
 Route::post('/profiles', [ProfileController::class, 'store'])->name('profiles.store');
-
 Route::get('/profiles/{id}', [ProfileController::class, 'show'])->name('profiles.show');
 
+// Library routes
 Route::get('/libraries', [LibraryController::class, 'index'])->name('libraries.index');
-
 Route::get('/libraries/{id}', [LibraryController::class, 'show'])->name('libraries.show');
 
+// Post routes
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+
+
+

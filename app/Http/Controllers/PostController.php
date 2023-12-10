@@ -21,7 +21,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('profiles.create');
+        return view('posts.create');
     }
 
     /**
@@ -29,7 +29,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = $request->validate([
+            'title' => 'required|max:100',
+            'content' => 'required|max:100'
+        ]);
+
+        $post = new Post;
+        $post->title = $valid['title'];
+        $post->content = $valid['content'];
+        $post->save();
+
+        session()->flash('message', 'Post created succesfully!');
+
+        return redirect()->route('posts.index');
     }
 
     /**
