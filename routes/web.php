@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\PostController;
@@ -35,5 +36,9 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 
+// Auth routes
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'store']);
 
-
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'authenticate']);
