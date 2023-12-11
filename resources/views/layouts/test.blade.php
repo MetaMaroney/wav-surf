@@ -12,7 +12,9 @@
             <div class="navitem" id="navdiv1">*Logo*</div>
             <div class="navitem" id="navdiv2">*Search Bar*</div>
             <div class="navitem" id="navdiv3">
-                <a href="{{ route('register')}}">Register</a> *Profile*
+                <a href="{{ route('register') }}">register</a>
+                *Profile*
+                <a href="{{ route('login') }}">login</a>
             </div>
         </div>
         <div class="bdiv" id="bodycontainer">

@@ -1,10 +1,10 @@
 @extends('layouts.test')
 
 @section('middlediv')
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('login') }}">
         @csrf
         <div>
-            Name: <input type="text" name="name">
+            <a href="{{ route('register')}}">Register</a>
         </div>
         <div>
             E-mail Address: <input type="email" name="email">
@@ -13,10 +13,7 @@
             Password: <input type="password" name="password">
         </div>
         <div>
-            Re-enter Password: <input type="password" name="password_confirmation">
-        </div>
-        <div>
-            <input type="submit" value="Register">
+            <input type="submit" value="Login">
         </div>
     </form>
 @endsection

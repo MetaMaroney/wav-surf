@@ -29,10 +29,20 @@ class AuthController extends Controller
     }
 
     public function login(){
-
+        return view('auth.login');
     }
 
     public function authenticate(){
+        $valid = request()->validate([
+            'email' => 'required|email',
+            'password' => 'required'  
+        ]);
 
+        if (auth()->attempt($valid)){
+            request()->session()->regenerate();
+            return redirect()->route('posts.index');
+        }
+
+        return redirect()->route('login');
     }
 }
