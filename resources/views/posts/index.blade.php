@@ -7,10 +7,20 @@
 @section('middlediv')
             @foreach ($posts as $post)
             <div class="post">
-                <li>{{ $post->created_at }}</li>
-                <li>{{ $post->title }}</li>
-                <li>{{ $post->content }}</li>
-                <li>{{ $post->user->name }}</li>
+                <div class="postitem" id="postcreator">
+                    {{ $post->user->name }}
+                </div>
+                <div class="postitem" id="posttop">                        
+                    <div>
+                        {{ $post->title }}
+                    </div>
+                </div>
+                <div class="postitem" id="postmiddle">
+                    {{ $post->content }}
+                </div>
+                <div class="postitem" id="postbottom">
+                    {{ $post->created_at }}
+                </div>
             </div>
             @endforeach
 @endsection
