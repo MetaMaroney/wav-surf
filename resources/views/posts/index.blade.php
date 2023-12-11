@@ -8,8 +8,10 @@
     <div id="middledivitem">
         <ul>
             @foreach ($posts as $post)
+            <div class="post">
                 <li>{{ $post->title }}</li>
                 <li>{{ $post->content }}</li>
+            </div>
             @endforeach
         </ul>
     </div>

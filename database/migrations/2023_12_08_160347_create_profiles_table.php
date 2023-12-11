@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('username');
             $table->string('bio')->nullable();
             $table->dateTime('date_of_birth')->nullable();
+
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 

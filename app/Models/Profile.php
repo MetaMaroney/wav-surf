@@ -24,8 +24,8 @@ class Profile extends Model
         return $this->belongsToMany(GroupLibrary::class);
     }
 
-    public function posts()
+    public function user()
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsTo(User::class);
     }
 }

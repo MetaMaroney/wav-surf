@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -37,6 +38,7 @@ class PostController extends Controller
         $post = new Post;
         $post->title = $valid['title'];
         $post->content = $valid['content'];
+        $post->user_id = Auth::user()->id;
         $post->save();
 
         session()->flash('message', 'Post created succesfully!');

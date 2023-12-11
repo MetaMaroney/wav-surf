@@ -17,9 +17,9 @@ return new class extends Migration
 
             $table->string('title');
             $table->string('content');
-            $table->bigInteger('profile_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
 
-            $table->foreign('profile_id')->references('id')->on('profiles')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }

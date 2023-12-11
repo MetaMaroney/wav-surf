@@ -9,8 +9,12 @@ class Post extends Model
 {
     use HasFactory;
 
-    public function profiles()
+    protected $fillable = [
+        'profile_id'
+    ];
+
+    public function user()
     {
-        return $this->belongsTo(Profile::class);
+        return $this->belongsTo(User::class);
     }
 }
