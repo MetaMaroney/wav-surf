@@ -23,4 +23,9 @@ class Profile extends Model
     {
         return $this->belongsToMany(GroupLibrary::class);
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

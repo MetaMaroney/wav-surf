@@ -17,6 +17,10 @@ return new class extends Migration
 
             $table->string('title');
             $table->string('content');
+            $table->bigInteger('profile_id')->unsigned();
+
+            $table->foreign('profile_id')->references('id')->on('profiles')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
