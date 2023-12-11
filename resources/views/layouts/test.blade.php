@@ -4,6 +4,8 @@
 <head>
     <title>Wav Surf - @yield('title')</title>
     <link rel="stylesheet" href="{{asset('dashboard.css')}}">
+    <!-- Add these lines to the head section of your layout file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>

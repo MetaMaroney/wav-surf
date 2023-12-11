@@ -9,6 +9,13 @@
             <div class="post">
                 <div class="postitem" id="postcreator">
                     {{ $post->user->name }}
+                    <div>
+                        <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
+                            @csrf
+                            @method('delete')
+                            <button id="deletebutton">X</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="postitem" id="posttop">                        
                     <div>

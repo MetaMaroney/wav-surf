@@ -75,6 +75,8 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Post::where('id', $id)->firstOrFail();
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }
