@@ -32,7 +32,10 @@
                     <li>Explore</li>
                 </ul>
             </div>
-            <div class="bodyitem" id="bodydiv2">
+            <div class="bodyitem" id="bodymiddlediv">
+                <div class="post" id="sticky">
+                    <li>Some Text</li>
+                </div>
                 @yield('middlediv')
             </div>
             <div class="bodyitem" id="bodydiv3">

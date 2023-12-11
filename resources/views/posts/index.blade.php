@@ -5,16 +5,14 @@
 @endsection
 
 @section('middlediv')
-    <div id="middledivitem">
-        <ul>
             @foreach ($posts as $post)
             <div class="post">
+                <li>{{ $post->created_at }}</li>
                 <li>{{ $post->title }}</li>
                 <li>{{ $post->content }}</li>
+                <li>{{ $post->user->name }}</li>
             </div>
             @endforeach
-        </ul>
-    </div>
 @endsection
 
 @section('rightdiv')
