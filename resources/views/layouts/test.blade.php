@@ -12,9 +12,16 @@
             <div class="navitem" id="navdiv1">*Logo*</div>
             <div class="navitem" id="navdiv2">*Search Bar*</div>
             <div class="navitem" id="navdiv3">
+                @guest
                 <a href="{{ route('register') }}">register</a>
-                *Profile*
+                @endguest
+                @auth()
+                <a href="">{{ Auth::user()->name }}</a>
+                <a href="{{ route('logout') }}"> logout</a>
+                @endauth
+                @guest
                 <a href="{{ route('login') }}">login</a>
+                @endguest
             </div>
         </div>
         <div class="bdiv" id="bodycontainer">
