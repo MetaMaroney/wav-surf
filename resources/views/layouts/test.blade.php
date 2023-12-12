@@ -19,7 +19,7 @@
                 @endguest
                 @auth()
                 <a href="">{{ Auth::user()->name }}</a>
-                <a href="{{ route('logout') }}"> logout</a>
+                <a href="{{ route('logout') }}">logout</a>
                 @endauth
                 @guest
                 <a href="{{ route('login') }}">login</a>

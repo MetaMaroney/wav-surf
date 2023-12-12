@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,6 +25,11 @@ class AuthController extends Controller
         $user->email = $valid['email'];
         $user->password = Hash::make($valid['password']);
         $user->save();
+
+        $profile = new Profile;
+        $profile->username = $user->name;
+        $profile->user_id = $user->id;
+        $profile->save();
 
         return redirect()->route('login');
     }

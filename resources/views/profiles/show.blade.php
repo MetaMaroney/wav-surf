@@ -5,8 +5,11 @@
 @endsection
 
 @section('middlediv')
-    <div id="middledivitem">
-        <ul>Username: {{$profile->username}}</ul>
-        <ul>{{$profile->bio}}</ul>
+    <div class="post">
+        <div class="postitem" id="profileitem">
+                <li>Username: {{$profile->username}}</li>
+                <li>{{$profile->bio}}</li>
+                <li>{{ $profile->user->posts }}</li>
+        </div>
     </div>
 @endsection

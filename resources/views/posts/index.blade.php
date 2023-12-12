@@ -8,7 +8,7 @@
             @foreach ($posts as $post)
             <div class="post">
                 <div class="postitem" id="postcreator">
-                    {{ $post->user->name }}
+                    <a href="{{ route('profiles.show', $post->user_id) }}">{{ $post->user->name }}</a>
                     <div>
                         <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
                             @csrf

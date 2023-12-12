@@ -130,3 +130,8 @@ html, body{
 #deletebutton:hover{
     background-color: red;
 }
+#profileitem{
+}
+li{
+    list-style-type: none;
+}
