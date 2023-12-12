@@ -30,8 +30,7 @@
             <div class="bodyitem" id="bodydiv1">
                 @yield('leftdiv')
                 <ul>
-                    <li>Library</li>
-                    <li>Explore</li>
+                    <a href="{{ route('posts.index') }}">Explore</a>
                 </ul>
             </div>
             <div class="bodyitem" id="bodymiddlediv">
