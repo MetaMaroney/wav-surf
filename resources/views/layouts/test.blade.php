@@ -22,7 +22,7 @@
                 <a href="{{ route('logout') }}">logout</a>
                 @endauth
                 @guest
-                <a href="{{ route('login') }}">login</a>
+                <a class="mx-2" href="{{ route('login') }}">login</a>
                 @endguest
             </div>
         </div>
