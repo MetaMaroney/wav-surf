@@ -138,3 +138,15 @@ li{
     background-color: rgb(68, 199, 199);
     border-radius: 15px;
 }
+#postcomment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#comment-editor{
+    width: 100%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: rgb(240, 240, 240);
+}

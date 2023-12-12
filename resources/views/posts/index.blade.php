@@ -16,6 +16,7 @@
                             @method('delete')
                             <button id="deletebutton">X</button>
                         </form>
+                        <a href="{{ route('posts.show', $post->id) }}">View</a>
                     </div>
                 </div>
                 <div class="postitem" id="posttop">                        
@@ -28,6 +29,9 @@
                 </div>
                 <div class="postitem" id="postbottom">
                     {{ $post->created_at }}
+                </div>
+                <div class="postitem" id="postcomment">
+                    
                 </div>
             </div>
             @endforeach
