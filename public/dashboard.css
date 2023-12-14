@@ -98,10 +98,11 @@ html, body{
 
 }
 .post{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 242, 0);
     border-radius: 15px;
     padding: 10px;
     margin-bottom: 10px;
+    margin-inline: 10px;
 }
 #sticky{
     position: sticky;
@@ -114,7 +115,15 @@ html, body{
 }
 #postcreator{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+}
+#post-author{
+    background-color: aquamarine;
+}
+#post-view-delete{
+    background-color: crimson;
+    display: flex;
 }
 #deletebutton{
     background-color: rgb(255, 255, 255);
@@ -123,7 +132,7 @@ html, body{
     padding: 0 0.5em;
     border-radius: 1em;
     border: none;
-    border-color: red;
+    border-color: rgb(0, 255, 55);
     transition-duration: 0.5s;
     outline:rgb(0, 0, 0) solid 1px;
 }
@@ -149,4 +158,28 @@ li{
     border-radius: 15px;
     box-sizing: border-box;
     background-color: rgb(240, 240, 240);
+}
+
+#comment-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#comment-name-edit{
+    display: flex;
+    justify-content: space-between;
+}
+
+#post-content-container{
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+}
+#comments-container{
+    background-color: white;
+    max-height: 300px;
+    overflow: auto;
+    scrollbar-width:none;
 }

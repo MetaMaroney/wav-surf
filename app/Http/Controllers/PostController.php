@@ -60,7 +60,13 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        if (auth()->id() !== $post->user_id) {
+            abort(404);
+        }
+        //return view('posts.show', compact('post', 'edit'));
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -68,7 +74,18 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        request()->validate([
+            'title' => 'required|max:100',
+            'content' => 'required|max:255'
+        ]);
+
+        $post->title = request()->get('title');
+        $post->content = request()->get('content');
+        $post->save();
+        
+        return redirect()->route('posts.show', ['post' => $post, 'id' => $post->id] );
     }
 
     /**
@@ -76,6 +93,12 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
+        $post = Post::findOrFail($id);
+
+        if (auth()->id() !== $post->user_id) {
+            abort(404);
+        }
+
         $post = Post::where('id', $id)->firstOrFail();
         $post->delete();
         return redirect()->route('posts.index');
