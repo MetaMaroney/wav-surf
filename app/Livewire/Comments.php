@@ -17,20 +17,23 @@ class Comments extends Component
     public function postComment()
     {
         $this->validateOnly('comment');
+
         $this->post->comments()->create([
             'content' => $this->comment,
             'user_id' => auth()->id()
         ]);
+        
         $this->reset('comment');
     }
 
     public function comments()
     {
+        
         return $this->post->comments; // get posts comments and order by time created
     }
 
     public function render()
     {
-        return view('livewire.comments');
+        return view('livewire.comments', ['comments' => $this->post->comments]);
     }
 }
