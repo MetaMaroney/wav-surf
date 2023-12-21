@@ -46,8 +46,10 @@ class CommentController extends Controller
     {
         $comment = Comment::findOrFail($id);
 
-        if (auth()->id() !== $comment->user_id) {
-            abort(404);
+        if (!auth()->user()->is_admin) {
+            if (auth()->id() !== $comment->user_id) {
+                abort(404);
+            }
         }
 
         return view('comments.edit', ['comment' => $comment]);
@@ -76,8 +78,10 @@ class CommentController extends Controller
     {
         $comment = Comment::findOrFail($id);
 
-        if (auth()->id() !== $comment->user_id){
-            abort(404);
+        if (!auth()->user()->is_admin) {
+            if (auth()->id() !== $comment->user_id){
+                abort(404);
+            }
         }
 
         $comment = Comment::where('id', $id)->firstOrFail();
