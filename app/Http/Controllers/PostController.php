@@ -32,13 +32,21 @@ class PostController extends Controller
     {
         $valid = $request->validate([
             'title' => 'required|max:100',
-            'content' => 'required|max:100'
+            'content' => 'required|max:100',
+            'image' => 'image',
         ]);
 
         $post = new Post;
         $post->title = $valid['title'];
         $post->content = $valid['content'];
         $post->user_id = Auth::user()->id;
+
+        if (request()->has('image')) {
+            $image_URL = request()->file('image')->store('post', 'public');
+            $valid['image'] = $image_URL;
+            $post->image = $valid['image'];
+        }
+
         $post->save();
 
         session()->flash('message', 'Post created succesfully!');
@@ -62,8 +70,10 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        if (auth()->id() !== $post->user_id) {
-            abort(404);
+        if (!auth()->user()->is_admin) {
+            if (auth()->id() !== $post->user_id) {
+                abort(404);
+            }
         }
         //return view('posts.show', compact('post', 'edit'));
         return view('posts.edit', ['post' => $post]);
@@ -95,8 +105,10 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        if (auth()->id() !== $post->user_id) {
-            abort(404);
+        if (!auth()->user()->is_admin) {
+            if (auth()->id() !== $post->user_id) {
+                abort(404);
+            }
         }
 
         $post = Post::where('id', $id)->firstOrFail();
