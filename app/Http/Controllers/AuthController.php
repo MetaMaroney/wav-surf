@@ -24,6 +24,7 @@ class AuthController extends Controller
         $user->name = $valid['name'];
         $user->email = $valid['email'];
         $user->password = Hash::make($valid['password']);
+        $user->is_admin = false;
         $user->save();
 
         $profile = new Profile;
