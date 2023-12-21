@@ -1,13 +1,21 @@
 @extends('layouts.test')
 
 @section('middlediv')
-<div>
-    <form method="POST" action="{{ route('posts.store') }}">
-    @csrf
-    <p>Title: <input type="text" name="title"></p>
-    <p>Message: <input type="text" name="content"></p>
-    <input type="submit" value="post">
-    <a href="{{ route('posts.index') }}">Cancel</a>
-    </form>
+<div class="post" id="post-create-container">
+    <div id="create-container">
+        <div>
+            <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+                @csrf
+                <h5 class="text-white">Title: </h5>
+                <input type="text" name="title" id="title-text-area" placeholder="Something captivating!">
+                <textarea name="content" id="content-text-area" placeholder="Describe your post here!"></textarea>
+                <input class="form-control" name="image" id="image-upload" type="file" >
+                <div id="cancel-post">
+                    <a id="post-create-cancel" href="{{ route('posts.index') }}">Cancel</a>
+                    <input id="post-button" type="submit" value="post">
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 @endsection

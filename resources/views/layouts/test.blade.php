@@ -12,43 +12,48 @@
 <body>
     <div id="container">
         <div class="bdiv" id="navcontainer">
-            <div class="navitem" id="navdiv1">*Logo*</div>
-            <div class="navitem" id="navdiv2">*Search Bar*</div>
+            <div class="navitem" id="navdiv1">
+                <img width="90" class="mb-3" src="{{ url('storage/wavesurf/wav-surf-logo.png') }}" alt="">
+            </div>
             <div class="navitem" id="navdiv3">
                 @guest
-                <a href="{{ route('register') }}">register</a>
+                <a class="hyperlink-button" href="{{ route('register') }}">register</a>
                 @endguest
                 @auth()
-                <a href="">{{ Auth::user()->name }}</a>
-                <a href="{{ route('logout') }}">logout</a>
+                <a id="profile-name" href="{{ route('profiles.show', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
+                <a id="logout" href="{{ route('logout') }}">logout</a>
                 @endauth
                 @guest
-                <a class="mx-2" href="{{ route('login') }}">login</a>
+                <a id="login" class="hyperlink-button" href="{{ route('login') }}">login</a>
                 @endguest
             </div>
         </div>
         <div class="bdiv" id="bodycontainer">
             <div class="bodyitem" id="bodydiv1">
                 @yield('leftdiv')
-                <ul>
-                    <a href="{{ route('posts.index') }}">Explore</a>
-                </ul>
+                <dvi>
+                    <a id="explore-body" href="{{ route('posts.index') }}">Explore</a>
+                </dvi>
             </div>
             <div class="bodyitem" id="bodymiddlediv">
-                <div class="post" id="sticky">
-                    <li>Some Text</li>
+                <div id="sticky">
+                    <a id="explore" href="{{ route('posts.index') }}">Explore</a>
+                    @yield('sticky')
                 </div>
                 @yield('middlediv')
             </div>
             <div class="bodyitem" id="bodydiv3">
+                <div>
+                    @yield('rightdiv')
+                </div>
                 @if (session('message'))
-                    <div>
+                    <div class="error-message">
                         Message:
-                        <p><b>{{ session('message') }}</b></p>
+                        {{ session('message') }}
                     </div>
                 @endif
                 @if ($errors->any())
-                    <div>
+                    <div class="error-message">
                         Errors:
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -57,7 +62,6 @@
                         </ul>
                     </div>
                 @endif
-                @yield('rightdiv')
             </div>
         </div>
     </div>
