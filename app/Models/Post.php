@@ -11,6 +11,7 @@ class Post extends Model
 
     protected $fillable = [
         'profile_id',
+        'image',
     ];
 
     public function user()
@@ -21,5 +22,11 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function getImage() {
+        if ($this->image) {
+            return url('storage/'.$this->image);
+        }
     }
 }
